@@ -1,5 +1,5 @@
 angular.module('acme')
-  .controller('RegionsCtrl', function($scope, $log, RegionsService){
+  .controller('RegionsCtrl', function($scope, $log, RegionsService, AssignmentsService){
 
   	$scope.create = function(){
   		RegionsService.create({zip: $scope.zip})
@@ -18,8 +18,24 @@ angular.module('acme')
   	$scope.destroy = function(region){
   		RegionsService.destroy(region)
   		  .then(function(region){
-  		  	console.log("region deleted")
+  		  	console.log("region deleted");
   		  })
   		  .catch($log.error);
   	};
+
+    $scope.assign = function(region, salesPerson){
+      AssignmentsService.assign(region, salesPerson)
+        .then(function(assignment){
+          console.log("assignment created");
+        })
+        .catch($log.error);
+    };
+
+    $scope.isAssigned = function(region, salesPerson){
+      AssignmentsService.isAssigned(region,salesPerson)
+       .then(function(assignment){})
+       .catch($log.error);
+    };
+
+
   });

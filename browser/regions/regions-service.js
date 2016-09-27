@@ -3,6 +3,7 @@ angular.module('acme')
 
   	var RegionsService = {};
   	var _regions = [];
+  	var _assignments = [];
 
   	RegionsService.create = function(zip){
   		return $http.post('/api/regions', zip)

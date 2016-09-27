@@ -11,5 +11,20 @@ angular.module('acme')
   		  })
   	};
 
+  	SalesPeopleService.getAll = function(){
+  		return $http.get('/api/salesPeople')
+  		  .then(function(salesPeople){
+  		  	angular.copy(salesPeople.data, _salesPeople);
+  		  	return _salesPeople;
+  		  })
+  	};
+
+  	SalesPeopleService.destroy = function(salesPerson){
+  		return $http.delete('/api/salesPeople/' + salesPerson.id)
+  		  .then(function(salesPersonDestroyed){
+  		  	_salesPeople.splice(_salesPeople.indexOf(salesPerson), 1);
+  		  })
+  	};
+
   	return SalesPeopleService;
   });

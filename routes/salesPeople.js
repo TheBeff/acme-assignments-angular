@@ -9,4 +9,20 @@ router.post('/', function(req, res, next){
 	  .catch(next);
 });
 
+router.get('/', function(req, res, next){
+	SalesPeople.findAll({where: {}})
+	  .then(function(salesPeople){
+	  	res.send(salesPeople);
+	  })
+	  .catch(next);
+});
+
+router.delete('/:id', function(req, res, next){
+	SalesPeople.destroy({where: {id: req.params.id}})
+	  .then(function(salesPersonDestroyed){
+	  	res.sendStatus(204);
+	  })
+	  .catch(next);
+});
+
 module.exports = router;

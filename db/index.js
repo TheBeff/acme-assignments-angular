@@ -23,7 +23,8 @@ function sync(){
 module.exports = {
 	models: {
 	  Regions,
-	  SalesPeople
+	  SalesPeople,
+	  Assignments
 	},
 	db,
 	sync

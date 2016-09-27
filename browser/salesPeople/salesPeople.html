@@ -4,3 +4,13 @@
   </div>
   <button class="btn btn-primary" ng-click="create()" ng-disabled=!name>Add Sales Person</button>
 </div>
+
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="salesPerson in salesPeople">{{salesPerson.name}}
+    <button class="btn btn-danger pull-right" ng-click="delete(salesPerson)">Delete</button>
+    <br clear="all">
+    <ul class="list-group" style="margin-top: 10px" ng-controller="RegionsCtrl">
+      <li class="list-group-item" ng-click="assign(region, salesPerson)" ng-class="{active: isAssigned(region, salesPerson)}" ng-repeat="region in regions">{{region.zip}}</li>
+    </ul>
+  </li>
+</ul>

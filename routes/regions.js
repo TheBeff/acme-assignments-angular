@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Regions = require('../db').models.Regions;
+const Assignments = require('../db').models.Assignments;
 
 router.post('/', function(req, res, next){
 	Regions.create({zip: req.body.zip})

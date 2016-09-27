@@ -12,5 +12,7 @@ app.get('/', function(req, res, next){
 });
 
 app.use('/api/regions', require('./routes/regions.js'));
+app.use('/api/salesPeople', require('./routes/salesPeople.js'));
+app.use('/api/assignments', require('./routes/assignments.js'));
 
 module.exports = app;
